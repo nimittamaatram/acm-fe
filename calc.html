@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        * {
+            margin: ;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100px;
+            font-family: serif;
+            background-color: lightgreen;
+
+        }
+
+        .main {
+            width: 400px;
+            background-color:black;
+            border-radius: 30px;
+            padding: 40px 20px 20px;
+        }
+
+        .screen {
+            background-color: lightyellow;
+            padding: 20px;
+            text-align: right;
+            border-radius: 25px;
+            font-size: 1cm;
+            color:black;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin-bottom: 25px;
+            min-height: 50px;
+        }
+
+        .keys {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
+        button {
+            background-color: grey;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.5rem;
+            padding: 20px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: blue;
+        }
+
+        #calculate, #clear, #delete {
+            background-color: green;
+            color: white;
+        }
+
+        #calc:hover, #clear:hover, #delete:hover {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="screen">
+            <span id="display">0</span>
+        </div>
+        <div class="keys">
+            <button id="square" onclick="sqr()">x²</button>
+            <button id="root" onclick="root()">√x</button>
+            <button id="clear" onclick="clr()">C</button>
+            <button id="delete" onclick="del()">DEL</button>
+            <button id="seven" onclick="insert('7')">7</button>
+            <button id="eight" onclick="insert('8')">8</button>
+            <button id="nine" onclick="insert('9')">9</button>
+            <button id="divide" onclick="insert('/')">/</button>
+            <button id="four" onclick="insert('4')">4</button>
+            <button id="five" onclick="insert('5')">5</button>
+            <button id="six" onclick="insert('6')">6</button>
+            <button id="mul" onclick="insert('*')">×</button>
+            <button id="one" onclick="insert('1')">1</button>
+            <button id="two" onclick="insert('2')">2</button>
+            <button id="three" onclick="insert('3')">3</button>
+            <button id="sub" onclick="insert('-')">-</button>
+            <button id="calculate" onclick="calculate()">=</button>
+            <button id="zero" onclick="insert('0')">0</button>
+            <button id="decimal" onclick="insert('.')">.</button>
+            <button id="add" onclick="insert('+')">+</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById('display');
+
+        function insert(value) {
+            if (display.textContent === "0") {
+                display.textContent = value;
+            } else {
+                display.textContent += value;
+            }
+        }
+
+        function clr() {
+            display.textContent = "0";
+        }
+
+        function del() {
+            if (display.textContent.length === 1) {
+                display.textContent = "0";
+            } else {
+                display.textContent = display.textContent.slice(0, -1);
+            }
+        }
+
+        function calculate() {
+            try {
+                display.textContent = eval(display.textContent);
+            } catch {
+                display.textContent = "Error";
+            }
+        }
+
+        function sqr() {
+            try {
+                display.textContent = Math.pow(parseFloat(display.textContent), 2);
+            } catch {
+                display.textContent = "Error";
+            }
+        }
+
+        function root() {
+            try {
+                display.textContent = Math.sqrt(parseFloat(display.textContent));
+            } catch {
+                display.textContent = "Error";
+            }
+        }
+    </script>
+</body>
+</html>
