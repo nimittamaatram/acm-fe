@@ -1,0 +1,108 @@
+
+body, h1, h2, h3, p, ul, li, a, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: lightgreen;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+
+header {
+    background-color: darkgreen;
+    padding: 17px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header img {
+    height: 60px;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+header ul li a {
+    color: lightgoldenrodyellow;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+
+
+header button {
+    background-color: #f7b731;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+header button:hover {
+    background-color: #ff9f1a;
+}
+
+
+main {
+    text-align: center;
+    padding: 150px 50px;
+}
+
+main h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+main p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    line-height: 2.5;
+}
+
+main button{
+    padding: 20px;
+    color: white;
+    background-color: darkgreen;
+    border-color: black;
+
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 20px 50px;
+    text-align: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer img {
+    margin: 10px 10px;
+}
+
+footer img:hover {
+    transform: scale(1.3);
+}
